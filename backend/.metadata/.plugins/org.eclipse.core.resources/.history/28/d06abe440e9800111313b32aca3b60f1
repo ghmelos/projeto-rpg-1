@@ -1,0 +1,5 @@
+package com.rpg.validators;
+
+public class ValidarAtributoMago {
+
+}

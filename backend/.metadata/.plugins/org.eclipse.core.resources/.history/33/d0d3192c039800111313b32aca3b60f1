@@ -1,0 +1,78 @@
+ package com.rpg.controllers;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rpg.entities.Personagem;
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/api/personagens")
+@CrossOrigin("*")
+public class PersonagemController {
+
+	@Autowired
+	private PersonagemService service;
+
+	@GetMapping
+	public ResponseEntity<List<Personagem>> listar() {
+		return ResponseEntity.ok(service.listarTodos());
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Personagem> buscar(@PathVariable Long id) {
+		Optional<Personagem> personagem = service.buscarPorId(id);
+		
+		if(personagem != null) {
+			return ResponseEntity.ok(personagem.get());
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+
+	@PostMapping
+	public ResponseEntity<Personagem> criar(@Valid @RequestBody Personagem personagem) {
+		Personagem novoPersonagem = service.salvar(personagem);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(novoPersonagem);
+	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<Personagem> atualizar(@PathVariable Long id, @Valid @RequestBody Personagem personagem) {
+		Personagem personagemAtualizado = service.atualizar(id, personagem);
+		
+		if(personagemAtualizado != null) {
+			return ResponseEntity.ok(personagemAtualizado);
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Object> excluir(@PathVariable Long id) {
+		Optional<Personagem> personagem = service.buscarPorId(id);
+		
+		if(personagem.isPresent()) {
+			service.deletar(id);
+			
+			return ResponseEntity.status(HttpStatus.OK).body("Sucesso: O personagem foi excluído permanentemente");
+		}
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Erro: Não foi possível deletar. O personagem com ID " + id + "não foi encontrado.");
+		
+	}
+}

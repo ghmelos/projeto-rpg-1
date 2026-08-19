@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagens de Rpg</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header class="hero">
+        <h1 class="titulo">Personagens de Rpg</h1>
+        <p class="dev">Guilherme Melos</p>
+    </header>
+
+    <hr class="linha-hero">
+
+    <main id="conteudo">
+        <section id="formulario">
+            <form id="personagemForm">
+                <input type="hidden" id="personagemId">
+                <input type="text" id="nome" placeholder="Nome:" required>
+                <select id="classe" required>
+                    <option value="" disabled selected>Selecione a classe:</option>
+                    <option value="guerreiro">Guerreiro</option>
+                    <option value="mago">Mago</option>
+                    <option value="ladino">Ladino</option>
+                    <option value="clerigo">Clérigo</option>
+                </select>
+                <input type="number" id="nivel" placeholder="Nível de 1 a 99:" required>
+                <select id="atributo" required>
+                    <option value="" disabled selected>Selecione o Atributo Principal:</option>
+                    <option value="Força">Força</option>
+                    <option value="Destreza">Destreza</option>
+                    <option value="Inteligência">Inteligência</option>
+                    <option value="Sabedoria">Sabedoria</option>
+                </select>
+                <button type="submit" id="btnSalvar">Salvar</button>
+            </form>
+        </section>
+        <section id="lista">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classe</th>
+                        <th>Nome</th>
+                        <th>Nível</th>
+                        <th>Atributo Principal</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="rodape">
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

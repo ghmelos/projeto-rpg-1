@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121214;
+    color: #e1e1e6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.titulo {
+    font-size: 2.5rem;
+    color: #ffb800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dev {
+    font-size: 0.9rem;
+    color: #8d8d99;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.linha-hero {
+    width: 100%;
+    max-width: 800px;
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
+    margin: 25px 0;
+}
+
+#conteudo {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#formulario {
+    background-color: #202024;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #323238;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#personagemForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#personagemForm input,
+#personagemForm select {
+    width: 100%;
+    padding: 12px;
+    background-color: #121214;
+    border: 1px solid #323238;
+    border-radius: 4px;
+    color: #e1e1e6;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#personagemForm input:focus,
+#personagemForm select:focus {
+    border-color: #ffb800;
+}
+
+#personagemForm select option {
+    background-color: #202024;
+    color: #e1e1e6;
+}
+
+#personagemForm select option:disabled {
+    color: #7c7c8a;
+}
+
+#btnSalvar {
+    background-color: #991b1b;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#btnSalvar:hover {
+    background-color: #b91c1c;
+}
+
+#btnSalvar:active {
+    transform: scale(0.98);
+}
+
+#lista {
+    background-color: #202024;
+    border-radius: 8px;
+    border: 1px solid #323238;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 14px 20px;
+}
+
+th {
+    background-color: #29292e;
+    color: #ffb800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #323238;
+}
+
+td {
+    border-bottom: 1px solid #29292e;
+    font-size: 1rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #29292e;
+}
+
+.rodape {
+    margin-top: auto;
+    padding: 20px 0;
+    color: #7c7c8a;
+    font-size: 0.85rem;
+}

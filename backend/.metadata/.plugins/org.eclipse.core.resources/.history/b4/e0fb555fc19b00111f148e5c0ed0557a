@@ -1,0 +1,4 @@
+INSERT INTO tb_personagem (nome, classe, nivel, atributo) VALUES
+('MaikiMatadô', 'Mago', 50, 'Inteligência'),
+('Baki', 'Guerreiro', 45, 'Força'),
+('Itadori', 'Ladino', 40, 'Destreza');

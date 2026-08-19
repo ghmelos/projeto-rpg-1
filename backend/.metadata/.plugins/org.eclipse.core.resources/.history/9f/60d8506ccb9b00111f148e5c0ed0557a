@@ -1,0 +1,24 @@
+package com.rpg.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class PersonagemConfig {
+
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		
+		http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
+				.requestMatchers("/**").permitAll().requestMatchers("/api/personagens/**").permitAll().anyRequest().authenticated());
+		
+		return http.build();
+	}
+	
+}

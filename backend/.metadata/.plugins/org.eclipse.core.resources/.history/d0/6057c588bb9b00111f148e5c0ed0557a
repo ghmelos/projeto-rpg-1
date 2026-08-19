@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS db_rpg;
+
+USE db_rpg;
+
+CREATE TABLE IF NOT EXISTS tb_personagem (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    classe VARCHAR(255) NOT NULL,
+    nivel INT NOT NULL,
+    atributo VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tb_personagem (nome, classe, nivel, atributo) VALUES
+('MaikiMatadô', 'Mago', 50, 'Inteligência'),
+('Baki', 'Guerreiro', 45, 'Força'),
+('Itadori', 'Ladino', 40, 'Destreza');

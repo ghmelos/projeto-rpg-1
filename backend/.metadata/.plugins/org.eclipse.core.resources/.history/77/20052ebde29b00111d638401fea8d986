@@ -1,0 +1,23 @@
+package com.rpg.validators;
+
+	import com.rpg.entities.Personagem;
+
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+	public class AtributoMagoValidator implements ConstraintValidator<ValidarAtributoMago, Personagem> {
+
+	    @Override
+	    public boolean isValid(Personagem personagem, ConstraintValidatorContext context) {
+	        if (personagem == null) {
+	            return true;
+	        }
+
+	        if ("Mago".equalsIgnoreCase(personagem.getClasse())) {
+	            return "Inteligência".equalsIgnoreCase(personagem.getAtributo());
+	        }
+
+	        return true;
+	    }
+	}
+}
